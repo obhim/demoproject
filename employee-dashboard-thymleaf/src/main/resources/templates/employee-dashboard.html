@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+  <div th:insert="add-css.html"></div>
+  <div class='dvv'>
+   <label class='lah'>Employee DashBaord</label>
+  </div>
+  <div class='container'>
+  <a href='add' class='la'><i class='fa fa-user-plus'></i>Add Employee</a>
+   <div class='card col-md-12 mx-auto'>
+    <div class='card-body'>
+      <div class='dv' th:if="${elist.empty}">
+         <label class='la' style='color:red'>Employee dash board has no record</label>
+       </div>
+     <table th:if="${!elist.empty}" class='table table-hover'>
+      <thead>
+       <tr>
+        <th>Employee id</th><th>First name</th><th>Last name</th>
+        <th>Phone number</th><th>Email id</th><th>Department</th>
+        <th>Salary</th><th style='color:blue'>Action</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr th:each="emp:${elist}">
+    	   <td th:text="${emp.eid}"></td>
+    	   <td th:text="${emp.firstname}"></td>
+    	   <td th:text="${emp.lastname}"></td>
+    	   <td th:text="${emp.phone}"></td>
+    	   <td th:text="${emp.email}"></td>
+    	   <td th:text="${emp.department}"></td>
+    	   <td th:text="${emp.salary}"></td>
+    	   <td>
+    	      <a th:href='@{edit-record(eid=${emp.eid})}'>Edit |</a>
+    	      <a th:href='@{delete-record(eid=${emp.eid})}' onclick='return confirm("Are you sure to delete?")'>Delete</a>
+    	   </td>
+    	  </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

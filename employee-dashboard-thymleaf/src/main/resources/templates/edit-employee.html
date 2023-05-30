@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+ <body onload="changeValue()">
+  <div th:insert="add-css.html"></div>
+ <div class='dvv'>
+   <label class='lah'>Edit Employee Form</label>
+  </div>
+  <div class='container'>
+   <div class='card col-md-10 mx-auto'>
+    <div class='card-body'>
+    <form action="update-record" method="post">
+     <input type='hidden' name='eid' th:value='${emp.eid}'>
+     <div class='row'>
+      <div class='form-group col-md-5'>
+      	<label for='firstname' class='la'>Edit first name</label>
+      	<input class='form-control' th:value="${emp.firstname}" type='text' id='firstname' name='firstname' required>
+      </div>
+      <div class='form-group col-md-5'>
+      	<label for='lastname' class='la'>Edit last name</label>
+      	<input class='form-control' th:value="${emp.lastname}" type='text' id='lastname' name='lastname' required>
+      </div>
+     </div>
+     <div class='row'>
+      <div class='form-group col-md-5'>
+      	<label for='phone' class='la'>Edit phone number</label>
+      	<input class='form-control' th:value="${emp.phone}" type='text' id='phone' name='phone' required>
+      </div>
+      <div class='form-group col-md-5'>
+      	<label for='email' class='la'>Edit email id</label>
+      	<input class='form-control' th:value="${emp.email}" type='text' id='email' name='email' required>
+      </div>
+     </div>
+     <div class='row'>
+      <div class='form-group col-md-5'>
+      	<label for='department' class='la'>Select department</label>
+      	<input type='hidden' th:value='${emp.department}' id='deptc'>
+      	<select name="department" id="dept" class='la form-control'>
+      	  	<option>Training</option>
+      	 	<option>Marketing</option>
+      	 	<option>Accounts</option>
+      	 	<option>Inventory</option>
+      	 	<option>Sales</option>
+      	 	<option>Human Resource</option>
+      	</select>
+      </div>
+      <div class='form-group col-md-5'>
+      	<label for='salary' class='la'>Edit salary</label>
+      	<input class='form-control' th:value="${emp.salary}" type='text' id='salary' name='salary' required>
+      </div>
+     </div>
+     <div class='row'>
+      <div class='form-group col-md-10'>
+       <button class='btn btn-primary'>Save Record</button>
+       <input type="button"  class='btn btn-secondary'  onclick='history.back()' value="Cancel">
+      </div>
+     </div> 
+     </form>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
