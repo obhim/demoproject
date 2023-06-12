@@ -7,6 +7,7 @@ import org.apache.catalina.Contained;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,6 @@ import com.file.entity.Movies;
 import com.file.entity.Ratings;
 
 @RestController
-//@RequestMapping("/api/v1")
 public class MoviesController {
 	@Autowired
 	private MoviesService moviesService;
@@ -100,6 +100,17 @@ public class MoviesController {
 
 		return ResponseEntity.ok("Movie deleted successfully");
 	}
-
+    
+   @GetMapping("/api/v1/genre-movies-with-subtotal")
+   public List<Object[]> getMoviesSubtotal() {
+		return moviesService.getMoviesSubtotal(); 
+		}
+   
+   @PostMapping("/api/v1/update-runtime-minutes")
+   public String incrementRuntimeMinutes() {
+	   moviesService.incrementRuntimeMinutes();
+	   return"Updated";
+       
+   }
   
 }

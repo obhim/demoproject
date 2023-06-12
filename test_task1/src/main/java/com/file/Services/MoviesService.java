@@ -26,6 +26,14 @@ public interface MoviesService {
 
 		void save(Movies movies);
 
+		List<Object[]> getMoviesSubtotal();
+
+		void incrementRuntimeMinutes();
+
+	
+
+		
+
 		
 
 		
